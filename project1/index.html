@@ -30,7 +30,8 @@
       Canvas not supported
     </canvas>
 
-
+    <!-- Load CS312 JS files -->
+    <script src='ParkerDrawing1.js'></script>
     <script>
       console.log('Hello World');
 
@@ -44,7 +45,8 @@
       var ctx = can.getContext("2d");
 
       // TODO add your drawing code here (You can create JS objects if you want)
-
+      var newParker = new Parker(ctx);
+      newParker.draw();
 
     </script>
 
