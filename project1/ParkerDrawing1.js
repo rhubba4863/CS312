@@ -40,6 +40,46 @@
     console.log("small square window");
   }
 
+  function sSpire(cc, X, Y){
+    this.cc = cc;
+    this.X = X;
+    this.Y = Y;
+    this.ctx.fillStyle = "black";
+    this.ctx.fillRect(X,Y,5,5);
+    //draw triangle
+    cc.beginPath();
+    cc.moveTo(X+2.5, Y-8); //top spires
+    cc.lineTo(X+1,Y);
+    cc.lineTo(X+4,Y);
+    this.cc.fillStyle = "black";
+    cc.fill();
+    cc.closePath();
+    //circle
+    cc.arc(X+2.5,Y-8,1,0,2*Math.PI);
+    this.cc.fillStyle = "black";
+    cc.fill();
+  }
+
+  function MSpire(cc, X, Y){
+    this.cc = cc;
+    this.X = X;
+    this.Y = Y;
+
+    //draw triangle
+    cc.beginPath();
+    cc.moveTo(X+11, Y-58); //top spires
+    cc.lineTo(X,Y);
+    cc.lineTo(X+22,Y);
+    this.cc.fillStyle = "black";
+    cc.fill();
+    cc.closePath();
+
+    //circle
+    cc.arc(X+11,Y-57,3,0,2*Math.PI);
+    cc.fill();
+    //cross
+  }
+
   function Parker(ctx) {
     this.ctx = ctx;
   }
@@ -50,17 +90,29 @@
       var kk = 2;
 
 /****************************************/
-      //left-main column
+    //left-main column
       this.ctx.fillStyle = "black";
-      this.ctx.fillRect(20,160,50,240);
-
+      this.ctx.fillRect(20,160,50,240);//main body
+      this.ctx.fillRect(25,140,40,40);
+      this.ctx.fillRect(30,120,30,30);
+      //WINDOWS
       circleSquare(ctx, 45, 215, 6, 18);
       circleSquare(ctx, 45, 250, 6, 18);
       circleSquare(ctx, 45, 285, 6, 18);
       circleSquare(ctx, 45, 325, 6, 18);
       circleSquare(ctx, 45, 360, 6, 22);
+      //SPIRES
+      sSpire(ctx, 19, 157.5); //-1 X,-1.5Y difference
+      sSpire(ctx, 24, 137.5); //-1 X,-1.5Y difference
+      sSpire(ctx, 29, 117.5); //-1 X,-1.5Y difference
+
+      sSpire(ctx, 66, 157.5); //-4 X,-1.5Y difference
+      sSpire(ctx, 61, 137.5); //
+      sSpire(ctx, 56, 117.5); //
+
+      MSpire(ctx, 34, 120); //
 /********************@@@@@@@********************/
-      //midleft
+    //midleft
       this.ctx.fillStyle = "black";
       this.ctx.fillRect(70,223,40,240);
       //WINDOWS
@@ -76,7 +128,7 @@
       this.ctx.fillRect(96,216,14,12); //larger
 
 /****************************************/
-      //Mid-Main column
+    //Mid-Main column
       this.ctx.fillStyle = "black";
       this.ctx.fillRect(110,160,62,240);
 
@@ -85,7 +137,7 @@
       circleSquare(ctx, 141, 328, 8, 54);
 
 /****************************************/
-      //midRight
+    //midRight
       this.ctx.fillStyle = "black";
       this.ctx.fillRect(172,223,40,240);
       //windows
@@ -102,7 +154,7 @@
       this.ctx.fillRect(172,216,14,12); //larger
 
 /****************************************/
-      //right-main column
+    //right-main column
       this.ctx.fillStyle = "black";
       this.ctx.fillRect(212,160,50,240);
 
