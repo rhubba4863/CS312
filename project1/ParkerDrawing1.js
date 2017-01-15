@@ -60,7 +60,7 @@
     cc.fill();
   }
 
-  function MSpire(cc, X, Y){
+  function MedSpire(cc, X, Y){
     this.cc = cc;
     this.X = X;
     this.Y = Y;
@@ -73,11 +73,55 @@
     this.cc.fillStyle = "black";
     cc.fill();
     cc.closePath();
-
     //circle
-    cc.arc(X+11,Y-57,3,0,2*Math.PI);
+    cc.arc(X+11,Y-55,3,0,2*Math.PI);
+    cc.fill();
+    cc.closePath();
+    cc.arc(X+11,Y-63,2,0,2*Math.PI);
     cc.fill();
     //cross
+    this.ctx.fillRect(X+10.5,Y-57,1,-10);
+  }
+
+  function LargeSpire(cc, X, Y){
+    this.cc = cc;
+    this.X = X;
+    this.Y = Y;
+
+    //draw triangle
+    cc.beginPath();
+    cc.moveTo(X+16, Y-84); //top spires
+    cc.lineTo(X,Y);
+    cc.lineTo(X+32,Y);
+    this.cc.fillStyle = "black";
+    cc.fill();
+    cc.closePath();
+    //circle
+    cc.beginPath();
+    cc.fillStyle = "gold";
+    cc.arc(X+16,Y-79,4,0,2*Math.PI);
+    cc.fill();
+    cc.closePath();
+  }
+
+  function smmSpire(cc, X, Y){
+    this.cc = cc;
+    this.X = X;
+    this.Y = Y;
+    this.ctx.fillStyle = "black";
+    this.ctx.fillRect(X,Y,7,7);
+    //draw triangle
+    cc.beginPath();
+    cc.moveTo(X+3.5, Y-12); //top spires
+    cc.lineTo(X+1.5,Y);
+    cc.lineTo(X+5.5,Y);
+    this.cc.fillStyle = "black";
+    cc.fill();
+    cc.closePath();
+    //circle
+    cc.arc(X+3.5,Y-12,1,0,2*Math.PI);
+    this.cc.fillStyle = "black";
+    cc.fill();
   }
 
   function Parker(ctx) {
@@ -110,7 +154,7 @@
       sSpire(ctx, 61, 137.5); //
       sSpire(ctx, 56, 117.5); //
 
-      MSpire(ctx, 34, 120); //
+      MedSpire(ctx, 34, 120); //
 /********************@@@@@@@********************/
     //midleft
       this.ctx.fillStyle = "black";
@@ -130,11 +174,23 @@
 /****************************************/
     //Mid-Main column
       this.ctx.fillStyle = "black";
-      this.ctx.fillRect(110,160,62,240);
+      this.ctx.fillRect(110,155,62,250);
+      this.ctx.fillRect(115,135,52,52);
+      this.ctx.fillRect(120,110,42,42);
 
       circleSquare(ctx, 141, 197, 8, 34);
       circleSquare(ctx, 141, 255, 8, 48);
       circleSquare(ctx, 141, 328, 8, 54);
+
+      smmSpire(ctx, 108, 152.5);
+      smmSpire(ctx, 113.5,132.5);
+      smmSpire(ctx, 118,107.5);
+
+      smmSpire(ctx, 167, 152.5);
+      smmSpire(ctx, 161.5,132.5);
+      smmSpire(ctx, 157,107.5);
+
+      LargeSpire(ctx, 125, 110)
 
 /****************************************/
     //midRight
@@ -156,13 +212,30 @@
 /****************************************/
     //right-main column
       this.ctx.fillStyle = "black";
-      this.ctx.fillRect(212,160,50,240);
+      this.ctx.fillRect(212,160,50,240);//main body
+      this.ctx.fillRect(217,140,40,40);
+      this.ctx.fillRect(222,120,30,30);
 
       circleSquare(ctx, 237, 215, 6, 18);
       circleSquare(ctx, 237, 250, 6, 18);
       circleSquare(ctx, 237, 285, 6, 18);
       circleSquare(ctx, 237, 325, 6, 18);
       circleSquare(ctx, 237, 360, 6, 22);
+
+    //SPIRES
+      sSpire(ctx, 211, 157.5); //-1 X,-1.5Y difference
+      sSpire(ctx, 216, 137.5); //-1 X,-1.5Y difference
+      sSpire(ctx, 221, 117.5); //-1 X,-1.5Y difference
+
+      sSpire(ctx, 258, 157.5);
+      sSpire(ctx, 253, 137.5);
+      sSpire(ctx, 248, 117.5);
+
+      MedSpire(ctx, 226, 120);
+
+
+
+
 
 //src='ParkerDrawing1.js'
       //this.ctx.helpMe(ctx);
