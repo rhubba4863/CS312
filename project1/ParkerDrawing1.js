@@ -123,6 +123,49 @@
     this.cc.fillStyle = "black";
     cc.fill();
   }
+  function AngelTrumpet(cc, X, Y){
+    this.cc = cc;
+    this.X = X;
+    this.Y = Y;
+    this.ctx.fillStyle = "gold";
+    this.ctx.fillRect(X,Y,2,7); //legs
+    //draw bottom robe
+    cc.beginPath();
+    cc.moveTo(X-2, Y+0.5); //start left
+    cc.lineTo(X-2.25,Y-7);
+    cc.lineTo(X+3,Y-7);
+    cc.lineTo(X+3,Y-0.5);
+    cc.lineTo(X,Y);
+    this.cc.fillStyle = "gold";
+    cc.fill();
+    cc.closePath();
+    //draw mid robe
+    cc.beginPath();
+    cc.moveTo(X-2.25,Y-7); //start left
+    cc.lineTo(X-2.75,Y-7);
+    cc.lineTo(X-2.2,Y-17);
+    cc.lineTo(X+4,Y-19);     //right shoulder
+    cc.lineTo(X+8,Y-8);
+    cc.lineTo(X+3,Y-16);
+    cc.lineTo(X+4,Y-7);     //bottom right of mid robe
+    this.cc.fillStyle = "gold";
+    cc.fill();
+    cc.closePath();
+    //draw left arm and head
+    cc.beginPath();
+    cc.moveTo(X-2.2,Y-17); //start left armpit
+    cc.lineTo(X-5,Y-20);
+    cc.lineTo(X-4,Y-35);//made left hand
+    this.cc.fillStyle = "gold";
+    cc.fill();
+    cc.closePath();
+    //circle/head
+    cc.beginPath();
+    cc.fillStyle = "gold";
+    cc.arc(X,Y-20,2,0,2*Math.PI);
+    cc.fill();
+    cc.closePath();
+  }
 
   function Parker(ctx) {
     this.ctx = ctx;
@@ -191,6 +234,7 @@
       smmSpire(ctx, 157,107.5);
 
       LargeSpire(ctx, 125, 110)
+      AngelTrumpet(ctx, 140, 24)
 
 /****************************************/
     //midRight
