@@ -19,7 +19,7 @@ function main() {
   // Matrix commands
   // ========================================================================
 
-  var addMat = new Matrix([1,2,3,4,5,6,7,8,1]);
+  var addMat = new Matrix([1,2,3,4,5,6,7,8,1]); //1,2,3 is first row....
   var subMat = new Matrix([2,3,4,5,6,7,8,9,1]);
 
   // Add
